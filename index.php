@@ -23,7 +23,7 @@
             die();
         }
 
-/*         if($extensaoImg != 'jpg' && $extensaoImg != 'png'){
+        if($extensaoImg != 'jpg' && $extensaoImg != 'png'){
             ?>
             <script>
                 alert("Extensão não permitida...(Somente .jpg ou .png)");
@@ -31,7 +31,7 @@
             </script>
             <?php
             die();
-        } */
+        }
 
         if($img_prod['size'] > 4194304){
             ?>
