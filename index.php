@@ -9,9 +9,39 @@
         echo "<br><br>" . $img_prod['tmp_name'];
 
         $pasta = "assets/img_prod/";
-        $nomeImg = $img_prod['name'];
         $novoNomeImg = uniqid();
-        $extensaoImg = strtolower(pathinfo($nomeImg, PATHINFO_EXTENSION));
+        $extensaoImg = strtolower(pathinfo($img_prod['name'], PATHINFO_EXTENSION));
+
+        if($img_prod['error']){
+
+            ?>
+            <script>
+                alert("Falha ao enviar o arquivo...");
+                javascript:history.back();
+            </script>
+            <?php
+            die();
+        }
+
+/*         if($extensaoImg != 'jpg' && $extensaoImg != 'png'){
+            ?>
+            <script>
+                alert("Extensão não permitida...(Somente .jpg ou .png)");
+                javascript:history.back();
+            </script>
+            <?php
+            die();
+        } */
+
+        if($img_prod['size'] > 4194304){
+            ?>
+            <script>
+                alert("Arquivo maior que 4MB...");
+                javascript:history.back();
+            </script>
+            <?php
+            die();
+        }
 
         echo "<br><br>" . $extensaoImg;
 
@@ -20,6 +50,8 @@
         echo "<br><br>" . $novoPath;
 
         move_uploaded_file($img_prod['tmp_name'], $novoPath);
+
+        echo "<br><br><img src='$novoPath'<br><br>";
     }
 
 /*         if($img_prod['error']){
