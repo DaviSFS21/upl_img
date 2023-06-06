@@ -78,7 +78,7 @@
     
             move_uploaded_file($img_prod['tmp_name'], $novoPath);
 
-            echo "<br><br><img src='$novoPath' width='200em' height='30%'>";
+            echo "<br><br><img src='$novoPath' width='400em' height='30%'>";
         }
     ?>
 </body>
